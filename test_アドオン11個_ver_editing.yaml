@@ -1,0 +1,2225 @@
+dataFields: []
+swimlanes:
+- id: "lane_9931290"
+  name: "処理担当者"
+  swimlaneType: "NORMAL"
+  assignTo:
+    retainFamiliar: true
+    candidates:
+    - user:
+        quserId: 23
+nodes:
+- id: "node_9931291"
+  number: 0
+  name: ""
+  swimlaneId: "lane_9931290"
+  event:
+    eventType: "START_EVENT"
+- id: "node_9931293"
+  number: 1
+  name: "工程 1"
+  swimlaneId: "lane_9931290"
+  routingType: "FORM_ROUTING"
+  activity: {}
+  dataAccess:
+  - dataNumber: -2
+    access: "READWRITE"
+- id: "node_9931295"
+  number: 2
+  name: ""
+  swimlaneId: "lane_9931290"
+  event:
+    eventType: "END_EVENT"
+flows:
+- id: "flow_9931297"
+  from: "node_9931291"
+  to: "node_9931293"
+- id: "flow_9931298"
+  from: "node_9931293"
+  to: "node_9931295"
+layout:
+  swimlanes:
+  - id: "lane_9931290"
+    x: 40.0
+    "y": 20.0
+    width: 800.0
+    height: 100.0
+  nodes:
+  - id: "node_9931291"
+    x: 145.0
+    "y": 45.0
+  - id: "node_9931293"
+    x: 252.5
+    "y": 45.0
+  - id: "node_9931295"
+    x: 430.0
+    "y": 45.0
+  flows:
+  - id: "flow_9931297"
+    from:
+      x: 1
+      "y": 0.50
+    to:
+      x: 0
+      "y": 0.50
+  - id: "flow_9931298"
+    from:
+      x: 1
+      "y": 0.50
+    to:
+      x: 0
+      "y": 0.50
+name: "test_アドオン10個"
+category: "テスト"
+shortExplanation: ""
+note: ""
+viewPriority: 0
+schemaVersion: 369
+instanceSequence:
+  initValue: 1
+  refreshType: "NONE"
+metadata:
+- key: "email_notification_excludes_process_data"
+  value: "true"
+dbFiles:
+- name: "select/fruits.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<items>\r\n\t<item value=\"\
+    a\" display=\"apple\"/>\r\n\t<item value=\"b\" display=\"banana\"/>\r\n\t<item\
+    \ value=\"c\" display=\"cherry\"/>\r\n\t<item value=\"d\" display=\"dorian\"/>\r\
+    \n</items>"
+- name: "serviceTask/generator-textfile.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile10.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile11.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile2.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile3.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile4.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile5.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile6.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile7.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile8.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
+- name: "serviceTask/generator-textfile9.xml"
+  contentType: "text/xml"
+  note: ""
+  content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><service-task-definition>\n\n\
+    <label>Generate Text File</label>\n<label locale=\"ja\">テキストファイル生成</label>\n\n\
+    <help-page-url>https://support.questetra.com/bpmn-icons/generator-textfile/</help-page-url>\n\
+    <help-page-url locale=\"ja\">https://support.questetra.com/ja/bpmn-icons/generator-textfile/</help-page-url>\n\
+    \n<summary>This item converts any text into a file and adds it to a File type\
+    \ data item.</summary> \n<summary locale=\"ja\">この工程は、任意のテキストファイルを生成し、ファイルデータ項\
+    目に格納します。</summary>\n\n<license>(C) Questetra, Inc. (MIT License)</license>\n<last-modified>2024-10-01</last-modified>\n\
+    <engine-type>3</engine-type>\n<addon-version>2</addon-version>\n\n<configs>\n\
+    \  <config name=\"File_DataId\" required=\"true\" form-type=\"SELECT\" select-data-type=\"\
+    FILE\">\n    <label>C1: File type data item to save text file </label>\n    <label\
+    \ locale=\"ja\">C1: テキストファイルを保存するファイル型データ項目 </label>\n  </config>\n  <config name=\"\
+    conf_DeleteOtherFiles\" form-type=\"TOGGLE\">\n    <label>C2: Delete other files\
+    \ when saving</label>\n    <label locale=\"ja\">C2: 保存時に他のファイルを削除する</label>\n\
+    \  </config>\n  <config name=\"File_Name\" form-type=\"TEXTFIELD\" required=\"\
+    true\" el-enabled=\"true\">\n    <label>C3: Saving file name</label>\n    <label\
+    \ locale=\"ja\">C3: 保存ファイル名</label>\n  </config>\n  <config name=\"Text_Data\"\
+    \ required=\"true\" form-type=\"TEXTAREA\" el-enabled=\"true\">\n    <label>C4:\
+    \ Contents of text file</label>\n    <label locale=\"ja\">C4: テキストファイルの内容</label>\n\
+    \  </config>\n  <config name=\"conf_CharacterEncoding\" required=\"false\" form-type=\"\
+    SELECT_ITEM\">\n    <label>C5: Character encoding when saving (UTF-8 if not selected)</label>\n\
+    \    <label locale=\"ja\">C5: 保存する際の文字コード (未設定の場合、UTF-8)</label>\n    <item value=\"\
+    UTF-8\">\n    　　<label>UTF-8</label>\n    </item>\n    <item value=\"UTF-16\"\
+    >\n      <label>UTF-16BE with BOM</label>\n      <label locale=\"ja\">UTF-16BE\
+    \ (BOM あり)</label>\n    </item>\n    <item value=\"x-UTF-16LE-BOM\">\n      <label>UTF-16LE\
+    \ with BOM</label>\n      <label locale=\"ja\">UTF-16LE (BOM あり)</label>\n   \
+    \ </item>\n    <item value=\"UTF-16BE\">\n      <label>UTF-16BE without BOM</label>\n\
+    \      <label locale=\"ja\">UTF-16BE (BOM なし)</label>\n    </item>\n    <item\
+    \ value=\"UTF-16LE\">\n      <label>UTF-16LE without BOM</label>\n      <label\
+    \ locale=\"ja\">UTF-16LE (BOM なし)</label>\n    </item>\n  </config>\n  <config\
+    \ name=\"conf_ContentType\" required=\"false\" form-type=\"SELECT_ITEM\">\n  \
+    \  <label>C6: File type when saving (text/plain if not selected)</label>\n   \
+    \ <label locale=\"ja\">C6: 保存する際のファイルタイプ (未設定の場合、text/plain)</label>\n    <item\
+    \ value=\"text/plain\">\n      <label>text/plain</label>\n    </item>\n    <item\
+    \ value=\"text/html\">\n      <label>text/html</label>\n    </item>\n    <item\
+    \ value=\"text/markdown\">\n      <label>text/markdown</label>\n    </item>\n\
+    \    <item value=\"text/xml\">\n      <label>text/xml</label>\n    </item>\n \
+    \   <item value=\"application/json\">\n      <label>application/json</label>\n\
+    \    </item>\n  </config>\n</configs>\n\n<script><![CDATA[\n\n//////// START \"\
+    main()\" ////////\nconst main = () => {\n\n    //// == Config Retrieving & Caluculating\
+    \ / 工程コンフィグの参照 & 演算 ==\n    const textdata = configs.get(\"Text_Data\");\n   \
+    \ const filename = configs.get(\"File_Name\");\n    const filedataId = configs.get(\"\
+    File_DataId\");\n    const deleteOtherFiles = configs.getObject(\"conf_DeleteOtherFiles\"\
+    );\n    let characterEncoding = configs.get(\"conf_CharacterEncoding\");\n   \
+    \ let contentType = configs.get(\"conf_ContentType\");\n\n    if (filename ===\
+    \ \"\" || filename === null) {\n        throw new Error(\"File Name is blank\"\
+    );\n    }\n\n    if (textdata === null) {\n        textdata = \"\";\n    }\n\n\
+    \    if (characterEncoding === \"\" || characterEncoding === null) {\n       \
+    \ characterEncoding = 'UTF-8';\n    }\n\n    if (contentType === \"\" || contentType\
+    \ === null) {\n        contentType = 'text/plain';\n    }\n\n    myFiles = retrieveData(textdata,\
+    \ filename, filedataId, deleteOtherFiles, characterEncoding, contentType);\n \
+    \   updateData(filedataId, myFiles);\n}\n\n/**\n  * テキストデータをファイル型データに変換する\n  *\
+    \ @param {String} textdata テキストファイルの内容\n  * @param {String} filename 保存ファイル名\n\
+    \  * @param {String} filedataId テキストファイルを保存するファイル型データ項目のデータ定義番号\n  * @param {boolean}\
+    \ deleteOtherFiles 保存時に他のファイルを削除するかどうか\n  * @param {String} characterEncoding\
+    \ 保存する際の文字コード\n  * @param {String} contentType 保存する際のファイルタイプ\n  * @return {java.util.ArrayList<QfileView>}\
+    \ myFiles テキストデータをファイル型データとして追加した配列\n  */\nconst retrieveData = (textdata, filename,\
+    \ filedataId, deleteOtherFiles, characterEncoding, contentType) => {\n    let\
+    \ myFiles;\n    if (deleteOtherFiles === true) {\n        myFiles = new java.util.ArrayList();\n\
+    \    } else {\n        // ワークフローデータからファイル型データの配列を取得\n        myFiles = engine.findDataByNumber(filedataId);//\
+    \ java.util.ArrayList\n        if (myFiles === null) {\n            myFiles =\
+    \ new java.util.ArrayList();\n        }\n    }\n\n    let fileType;\n    //x-UTF-16LE-BOM\
+    \ について   QBPMS では contentType の charset は UTF-16 として扱われる\n    if (characterEncoding\
+    \ === 'x-UTF-16LE-BOM') {\n        fileType = `${contentType}; charset=UTF-16`;\n\
+    \    } else if (characterEncoding === \"UTF-8\" && contentType === \"application/json\"\
+    ) {\n    //application/json で UTF-8 の場合は、charset 無しで application/json のみ\n   \
+    \     fileType = \"application/json\";\n    } else {\n        fileType = `${contentType};\
+    \ charset=${characterEncoding}`;\n    }\n\n    // テキストデータをファイル型データに変換して追加した配列を\
+    返す\n    myFiles.add(\n        new com.questetra.bpms.core.event.scripttask.NewQfile(\n\
+    \            filename,\n            fileType,\n            characterEncoding,\n\
+    \            textdata\n        )\n    );\n    return myFiles;\n}\n\n//// == Data\
+    \ Updating / ワークフローデータへの代入 ==\nconst updateData = (filedataId, myFiles) => {\n\
+    \    engine.setDataByNumber(filedataId, myFiles);\n}\n\n]]></script>\n\n\n<icon>\n\
+    iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQ0lEQVRYR8WXS0gUYRzAf7O4i7ql\n\
+    lGSaFxHrFImRiRixgV286clHStZh1w5RoHXwoicJEruYK2YJRWEsFXQIH1GepMIEEQ/aQ1slo1Lz\n\
+    VW6PiW+30XFmdnemgv2OM//Hb/7PbyRifCTT/jtIRKYUiWPI5CKRCez4o7+AzBQSI8g8QeIebtbM\n\
+    2I4OcIM0AlwEPEC8GaPAN8CLg0vUMBdJJzKAFw8SlwGnScdasVVk6vDgDacfHqCDq0DtXzrWqrXj\n\
+    5oyRLWMAL7eRKP9PzkNmZO7goUJrUw8Q4cvtNjudRzvJScmJyJZ/P5/Ar4CRjC4SWwFCOW830hTO\n\
+    e4p6KMks4cKzC4x+HtWJbbNvw3fcR3xXPOs/140hZWrVNbEJEKr2V0YFp3YurLoeuhh8P6hzkOxI\n\
+    ZvHkIgUPCshPzWd8cZz+mX59YTrIVrpjE6CDVuCcVlrrXAF4/vE5hbsLg+JzX+cYmx9DASjtK6Xp\n\
+    UBPDn4apeVpjFIkruDkvXoQAxJCBz9o+j7PFcbfobjDs6iMiMLs6y2TZZPBxz+seyh6XbQCIFNQd\n\
+    qCM7OTscgJgTKWJYhQC8nEDiphY1w5mBv9JPy2jLllft4+3YsP0LgOiKKjzcUiLQBZwyApgqn8J+\n\
+    zW6Y76q9VcHnE18m6JvpsxIBoXYdN6eVCLxEIjcaQJIjCYfNoYMRFb/8fdkagMwIHg4qEZhXLZYN\n\
+    ByIF6gi0FrSStytPBzAwO0DjcKM1AFjAzU4FQDYqVS2AcWNvPlW6wEQRhpTcSJYA2o60Bftbe3r9\n\
+    vTS8aLAagS0AplLgjHMi5oL2iLG79mPNKoAqBV5MFWH1vmqytmfpAMYWxvC98VkD0BShqTZ07XGR\n\
+    lpCmA5hemWbow5A1AE0bhh1E4eaAUUFaKkLNIDIcxaIL3lW8o/hRcbQGCL5Xb0Nro1hoGyyj1IRU\n\
+    eot7TTlXC4n7QH1OfaRdoFlGQjvCOhavK7Mrgx3QPdFtCqghtyEcwCqG61iYjXAhaT7czNn9Z1kK\n\
+    LJkCCKbjrU+/DcNeSBSzYa5k6YnpiJRYOfPr8/hX/GqVKFcyRTSml9IokbASAZWsxWv5ZiRi+GOi\n\
+    QMT010wd75j9nP5l0s2q/Qa8EHkw8/O47gAAAABJRU5ErkJggg==\n</icon>\n    \n<test><![CDATA[\n\
+    \n/**\n * 設定の準備\n * @param deleteOtherFiles\n * @param fileName\n * @param textData\n\
+    \ * @param characterEncoding\n * @param contentType\n * @return fileDef: {Object}\n\
+    \ */\nconst prepareConfigs = (deleteOtherFiles, fileName, textData, characterEncoding,\
+    \ contentType) => {\n    configs.putObject('conf_DeleteOtherFiles', deleteOtherFiles);\n\
+    \n    // ファイル名を config に指定\n    configs.put('File_Name', fileName);\n\n    //\
+    \ テキストファイルの内容を config に指定\n    configs.put('Text_Data', textData);\n\n    configs.put('conf_CharacterEncoding',\
+    \ characterEncoding);\n    configs.put('conf_ContentType', contentType);\n\n \
+    \   // ファイル型データ項目を準備して、config に指定\n    const fileDef = engine.createDataDefinition('フ\
+    ァイル', 1, 'q_file', 'FILE');\n    configs.putObject('File_DataId', fileDef);\n\n\
+    \    return fileDef;\n};\n\n/**\n  * 異常系のテスト\n  * @param func\n  * @param errorMsg\n\
+    \  */\nconst assertError = (func, errorMsg) => {\n    let failed = false;\n  \
+    \  try {\n        func();\n    } catch (e) {\n        failed = true;\n       \
+    \ expect(e.message).toEqual(errorMsg);\n    }\n    if (!failed) {\n        fail('No\
+    \ error was thrown.');\n    }\n};\n\n/**\n * ファイル名が設定されておらずエラーになる場合\n */\ntest('File\
+    \ Name is blank', () => {\n    const fileDef = prepareConfigs(true, '', 'test\\\
+    ntest\\ntest', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    assertError(main, \"File Name is blank\");\n});\n\n/**\n * ファイ\
+    ルのテスト\n * @param file\n * @param name\n * @param characterEncoding\n * @param\
+    \ contentType\n * @param content\n */\nconst assertFile = (file, name, characterEncoding,\
+    \ contentType, content) => {\n    expect(file.getName()).toEqual(name);\n\n  \
+    \  expect(file.getContentType()).toEqual(contentType);\n\n    const text = fileRepository.readFile(file,\
+    \ characterEncoding);\n    expect(text).toEqual(content);\n};\n\n\n\n/**\n * テ\
+    キストファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * text/html\n\
+    \ * UTF-8\n */\ntest('success - 1file attached, not delete other files, text/html,\
+    \ UTF-8', () => {\n    const fileDef = prepareConfigs(false, 'テスト1.html', 'test\\\
+    ntest\\ntest1', 'UTF-8', 'text/html');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイ\
+    ル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト1.html', 'UTF-8', 'text/html;\
+    \ charset=UTF-8', 'test\\ntest\\ntest1');\n});\n\n/**\n * テキストファイル作成に成功した場合\n\
+    \ * 指定されているファイルの中身が空（テキストが空文字列）\n * ファイル型データにはファイルは添付されていない\n * 他のファイルを削除しない\n\
+    \ * text/plain\n * UTF-16\n */\ntest('success - no file attached and no text,\
+    \ not delete other files, text/plain, UTF-16', () => {\n    const fileDef = prepareConfigs(false,\
+    \ 'テスト2.txt', '', 'UTF-16', 'text/plain');\n\n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef,\
+    \ null);\n\n    // <script> のスクリプトを実行\n    main();\n\n    const files = engine.findData(fileDef);\n\
+    \    // ファイルが追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file\
+    \ = files.get(0);\n    assertFile(file, 'テスト2.txt', 'UTF-16', 'text/plain; charset=UTF-16',\
+    \ '');\n});\n\n/**\n * HTML ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されている\n * 他のファ\
+    イルを削除する\n * text/html\n * x-UTF-16LE-BOM\n */\ntest('success - 1file attached,\
+    \ delete other files, text/html, x-UTF-16LE-BOM', () => {\n    const fileDef =\
+    \ prepareConfigs(true, 'テスト3.html', 'test\\ntest\\ntest3', 'x-UTF-16LE-BOM', 'text/html');\n\
+    \n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    //x-UTF-16LE-BOM について   QBPMS では contentType の charset は UTF-16 として扱われる\n\
+    \    assertFile(file, 'テスト3.html', 'x-UTF-16LE-BOM', 'text/html; charset=UTF-16',\
+    \ 'test\\ntest\\ntest3');\n});\n\n/**\n * XML ファイル作成に成功した場合\n * ファイル型データにファイルが\
+    添付されていない\n * 他のファイルを削除する\n * text/xml\n * UTF-16BE\n */\ntest('success - no file\
+    \ attached, delete other files, text/xml, UTF-16BE', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト4.xml', 'test\\ntest\\ntest4', 'UTF-16BE', 'text/xml');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト4.xml', 'UTF-16BE', 'text/xml; charset=UTF-16BE', 'test\\\
+    ntest\\ntest4');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * 指定されているファイルの中身が空（テキストが\
+    空文字列）\n * ファイル型データにファイルが１つ添付されている\n * 他のファイルを削除しない\n * application/json\n * UTF-16LE\n\
+    \ */\ntest('success - 1file attached and no text, delete other files, application/json,\
+    \ UTF-16LE', () => {\n    const fileDef = prepareConfigs(false, 'テスト5.json', '',\
+    \ 'UTF-16LE', 'application/json');\n\n    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付さ\
+    れている状態を作成）\n    let files = new java.util.ArrayList();\n    files.add(engine.createQfile('事\
+    前ファイル.txt', 'text/plain; charset=UTF-8', '事前ファイル\\n'));\n\n    // ファイル型データ項目の値\
+    を指定\n    engine.setData(fileDef, files);\n\n    // <script> のスクリプトを実行\n    main();\n\
+    \n    files = engine.findData(fileDef);\n    // ファイルが上書きではなく追加されていることを確認\n   \
+    \ expect(files.size()).toEqual(2);\n\n    const file0 = files.get(0);\n    assertFile(file0,\
+    \ '事前ファイル.txt', 'UTF-8', 'text/plain; charset=UTF-8', '事前ファイル\\n');\n\n    const\
+    \ file1 = files.get(1);\n    assertFile(file1, 'テスト5.json', 'UTF-16LE', 'application/json;\
+    \ charset=UTF-16LE', '');\n});\n\n/**\n * テキストファイル作成に成功した場合\n * ファイル型データにファイルが\
+    １つ添付されている\n * 他のファイルを削除する\n * 文字コード、ファイルタイプが未設定\n */\ntest('success - 1file attached,\
+    \ delete other files, contentType and charset are blank', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト6.txt', 'test\\ntest\\ntest6', '', '');\n\n    //\
+    \ ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.txt', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト6.txt', 'UTF-8', 'text/plain; charset=UTF-8', 'test\\\
+    ntest\\ntest6');\n});\n\n/**\n * JSON ファイル作成に成功した場合\n * ファイル型データにファイルが１つ添付されてい\
+    る\n * 他のファイルを削除する\n * application/json\n * UTF-8\n */\ntest('success - 1file attached,\
+    \ delete other files, UTF-8 & application/json, UTF-8', () => {\n    const fileDef\
+    \ = prepareConfigs(true, 'テスト7.json', 'test\\ntest\\ntest7', 'UTF-8', 'application/json');\n\
+    \    // ファイル型データ項目の値を指定（ファイル型データに1ファイル添付されている状態を作成）\n    let files = new java.util.ArrayList();\n\
+    \    files.add(engine.createQfile('事前ファイル.json', 'text/plain', '事前ファイル\\n'));\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, files);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が上書きされていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト7.json', 'UTF-8', 'application/json', 'test\\ntest\\\
+    ntest7');\n});\n\n/**\n * Markdown ファイル作成に成功した場合\n * ファイル型データにファイルが添付されていない\n\
+    \ * 他のファイルを削除する\n * text/markdown\n * 文字コード未設定(UTF-8)\n */\ntest('success - no\
+    \ file attached, delete other files, text/markdown, charset are blank', () =>\
+    \ {\n    const fileDef = prepareConfigs(true, 'テスト8.md', '# Markdown\\n## list\\\
+    n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>', '', 'text/markdown');\n\
+    \n    // ファイル型データ項目の値を指定\n    engine.setData(fileDef, null);\n\n    // <script>\
+    \ のスクリプトを実行\n    main();\n\n    files = engine.findData(fileDef);\n    // ファイル\
+    が追加されていることを確認\n    expect(files.size()).toEqual(1);\n\n    const file = files.get(0);\n\
+    \    assertFile(file, 'テスト8.md', 'UTF-8', 'text/markdown; charset=UTF-8', '# Markdown\\\
+    n## list\\n<ol>\\n<li>item1\\n<ul>\\n<li>item2</li>\\n</ul></li>\\n</ol>');\n\
+    });\n\n]]></test>\n\n</service-task-definition>\n"
